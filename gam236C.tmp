@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://5rpomhcwusmx"]
+
+[ext_resource type="Texture2D" uid="uid://knjopuss6i0k" path="res://icon.svg" id="1_0lq8f"]
+[ext_resource type="PackedScene" uid="uid://deoushj056278" path="res://doodle.tscn" id="2_i6buv"]
+[ext_resource type="PackedScene" uid="uid://bbuc6y50sc3g4" path="res://ground.tscn" id="3_ugxh8"]
+[ext_resource type="PackedScene" uid="uid://cp0vl5apy6be7" path="res://player.tscn" id="4_bhune"]
+[ext_resource type="PackedScene" uid="uid://ddfi4k5ltfjpy" path="res://hammer.tscn" id="5_0vqd2"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(549, 374)
+texture = ExtResource("1_0lq8f")
+
+[node name="Doodle" parent="." instance=ExtResource("2_i6buv")]
+position = Vector2(387, 166)
+
+[node name="Ground" parent="." instance=ExtResource("3_ugxh8")]
+position = Vector2(1134, 1120)
+scale = Vector2(20, 20)
+
+[node name="Player" parent="." instance=ExtResource("4_bhune")]
+
+[node name="Hammer" parent="." instance=ExtResource("5_0vqd2")]
+position = Vector2(935, 506)
