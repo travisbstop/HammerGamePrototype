@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://ddfi4k5ltfjpy"]
-
-[node name="RigidBody2D" type="RigidBody2D"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-scale = Vector2(10, 10)
-polygon = PackedVector2Array(-1, -2, -1, 10, 1, 10, 1, -2, 5, -2, 5, -6, -5, -6, -5, -2)

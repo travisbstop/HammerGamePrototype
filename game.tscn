@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://5rpomhcwusmx"]
+[gd_scene load_steps=6 format=3 uid="uid://5rpomhcwusmx"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_jitfg"]
-[ext_resource type="PackedScene" uid="uid://deoushj056278" path="res://doodle.tscn" id="2_i6buv"]
 [ext_resource type="PackedScene" uid="uid://bbuc6y50sc3g4" path="res://ground.tscn" id="3_ugxh8"]
 [ext_resource type="PackedScene" uid="uid://cp0vl5apy6be7" path="res://player.tscn" id="4_bhune"]
-[ext_resource type="PackedScene" uid="uid://ddfi4k5ltfjpy" path="res://hammer.tscn" id="5_0vqd2"]
+[ext_resource type="PackedScene" uid="uid://ddfi4k5ltfjpy" path="res://hammer/hammer.tscn" id="5_0vqd2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g3k4y"]
 radius = 9.48683
@@ -29,9 +28,11 @@ scale = Vector2(20, 20)
 [node name="Player" parent="." instance=ExtResource("4_bhune")]
 script = null
 
-[node name="Hammer" parent="." instance=ExtResource("5_0vqd2")]
+[node name="Hammer" parent="." node_paths=PackedStringArray("cursor_animatable_body_2d", "cursor_pinjoint_2d") instance=ExtResource("5_0vqd2")]
 position = Vector2(786, 265)
 mass = 2.0
+cursor_animatable_body_2d = NodePath("../CursorAnimatableBody2D")
+cursor_pinjoint_2d = NodePath("../CursorAnimatableBody2D/CursorPinjoint2D")
 
 [node name="CursorAnimatableBody2D" type="AnimatableBody2D" parent="."]
 position = Vector2(787, 369)
@@ -44,26 +45,3 @@ shape = SubResource("CircleShape2D_g3k4y")
 [node name="CursorPinjoint2D" type="PinJoint2D" parent="CursorAnimatableBody2D"]
 node_a = NodePath("..")
 softness = 16.0
-
-[node name="Doodles" type="Node" parent="."]
-
-[node name="Doodle" parent="Doodles" instance=ExtResource("2_i6buv")]
-position = Vector2(332, 122)
-
-[node name="Doodle2" parent="Doodles" instance=ExtResource("2_i6buv")]
-position = Vector2(889, 701)
-
-[node name="Doodle3" parent="Doodles" instance=ExtResource("2_i6buv")]
-position = Vector2(635, 793)
-
-[node name="Doodle4" parent="Doodles" instance=ExtResource("2_i6buv")]
-position = Vector2(523, 550)
-
-[node name="Doodle5" parent="Doodles" instance=ExtResource("2_i6buv")]
-position = Vector2(1032, 195)
-
-[node name="Doodle6" parent="Doodles" instance=ExtResource("2_i6buv")]
-position = Vector2(310, 490)
-
-[node name="Doodle7" parent="Doodles" instance=ExtResource("2_i6buv")]
-position = Vector2(1140, 473)
