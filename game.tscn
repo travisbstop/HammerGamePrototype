@@ -1,27 +1,29 @@
-[gd_scene load_steps=8 format=3 uid="uid://5rpomhcwusmx"]
+[gd_scene load_steps=7 format=3 uid="uid://5rpomhcwusmx"]
 
-[ext_resource type="Texture2D" uid="uid://knjopuss6i0k" path="res://icon.svg" id="1_0lq8f"]
 [ext_resource type="Script" path="res://game.gd" id="1_jitfg"]
 [ext_resource type="PackedScene" uid="uid://deoushj056278" path="res://doodle.tscn" id="2_i6buv"]
 [ext_resource type="PackedScene" uid="uid://bbuc6y50sc3g4" path="res://ground.tscn" id="3_ugxh8"]
 [ext_resource type="PackedScene" uid="uid://cp0vl5apy6be7" path="res://player.tscn" id="4_bhune"]
 [ext_resource type="PackedScene" uid="uid://ddfi4k5ltfjpy" path="res://hammer.tscn" id="5_0vqd2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocv3d"]
-size = Vector2(35, 20)
+[sub_resource type="CircleShape2D" id="CircleShape2D_g3k4y"]
+radius = 9.48683
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_jitfg")
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(448, 381)
-texture = ExtResource("1_0lq8f")
-
-[node name="Doodle" parent="." instance=ExtResource("2_i6buv")]
-position = Vector2(387, 166)
-
 [node name="Ground" parent="." instance=ExtResource("3_ugxh8")]
 position = Vector2(1134, 1120)
+scale = Vector2(20, 20)
+
+[node name="Ground2" parent="." instance=ExtResource("3_ugxh8")]
+position = Vector2(1980, 275)
+rotation = 1.59094
+scale = Vector2(20, 20)
+
+[node name="Ground3" parent="." instance=ExtResource("3_ugxh8")]
+position = Vector2(-136, 300)
+rotation = 1.60828
 scale = Vector2(20, 20)
 
 [node name="Player" parent="." instance=ExtResource("4_bhune")]
@@ -29,80 +31,39 @@ script = null
 
 [node name="Hammer" parent="." instance=ExtResource("5_0vqd2")]
 position = Vector2(786, 265)
+mass = 2.0
 
-[node name="ChainContainer" type="Node2D" parent="."]
-
-[node name="ChainBeginning" type="RigidBody2D" parent="ChainContainer"]
-position = Vector2(608, 370)
+[node name="CursorAnimatableBody2D" type="AnimatableBody2D" parent="."]
+position = Vector2(787, 369)
 collision_layer = 0
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChainContainer/ChainBeginning"]
-position = Vector2(-24, 1)
-shape = SubResource("RectangleShape2D_ocv3d")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CursorAnimatableBody2D"]
+shape = SubResource("CircleShape2D_g3k4y")
 
-[node name="PinJoint2D" type="PinJoint2D" parent="ChainContainer"]
-position = Vector2(611, 367)
-node_a = NodePath("../ChainBeginning")
-node_b = NodePath("../RigidBody2D2")
-bias = 0.604
+[node name="CursorPinjoint2D" type="PinJoint2D" parent="CursorAnimatableBody2D"]
+node_a = NodePath("..")
+softness = 16.0
 
-[node name="RigidBody2D2" type="RigidBody2D" parent="ChainContainer"]
-position = Vector2(634, 369)
-collision_layer = 0
-collision_mask = 0
+[node name="Doodles" type="Node" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChainContainer/RigidBody2D2"]
-position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_ocv3d")
+[node name="Doodle" parent="Doodles" instance=ExtResource("2_i6buv")]
+position = Vector2(332, 122)
 
-[node name="PinJoint2D2" type="PinJoint2D" parent="ChainContainer"]
-position = Vector2(660, 368)
-node_a = NodePath("../RigidBody2D2")
-node_b = NodePath("../RigidBody2D3")
-bias = 0.604
+[node name="Doodle2" parent="Doodles" instance=ExtResource("2_i6buv")]
+position = Vector2(889, 701)
 
-[node name="RigidBody2D3" type="RigidBody2D" parent="ChainContainer"]
-position = Vector2(684, 372)
-collision_layer = 0
-collision_mask = 0
+[node name="Doodle3" parent="Doodles" instance=ExtResource("2_i6buv")]
+position = Vector2(635, 793)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChainContainer/RigidBody2D3"]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_ocv3d")
+[node name="Doodle4" parent="Doodles" instance=ExtResource("2_i6buv")]
+position = Vector2(523, 550)
 
-[node name="PinJoint2D3" type="PinJoint2D" parent="ChainContainer"]
-position = Vector2(704, 370)
-node_a = NodePath("../RigidBody2D3")
-node_b = NodePath("../RigidBody2D4")
-bias = 0.604
+[node name="Doodle5" parent="Doodles" instance=ExtResource("2_i6buv")]
+position = Vector2(1032, 195)
 
-[node name="RigidBody2D4" type="RigidBody2D" parent="ChainContainer"]
-position = Vector2(723, 371)
-collision_layer = 0
-collision_mask = 0
+[node name="Doodle6" parent="Doodles" instance=ExtResource("2_i6buv")]
+position = Vector2(310, 490)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChainContainer/RigidBody2D4"]
-position = Vector2(3, -1)
-shape = SubResource("RectangleShape2D_ocv3d")
-
-[node name="PinJoint2D4" type="PinJoint2D" parent="ChainContainer"]
-position = Vector2(747, 371)
-node_a = NodePath("../RigidBody2D4")
-node_b = NodePath("../ChainEnd")
-bias = 0.604
-
-[node name="ChainEnd" type="RigidBody2D" parent="ChainContainer"]
-position = Vector2(766, 368)
-collision_layer = 0
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChainContainer/ChainEnd"]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_ocv3d")
-
-[node name="ChainHammerPinJoint" type="PinJoint2D" parent="ChainContainer"]
-position = Vector2(786, 369)
-node_a = NodePath("../ChainEnd")
-node_b = NodePath("../../Hammer")
-bias = 0.604
+[node name="Doodle7" parent="Doodles" instance=ExtResource("2_i6buv")]
+position = Vector2(1140, 473)
