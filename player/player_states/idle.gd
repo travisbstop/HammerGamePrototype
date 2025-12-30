@@ -15,6 +15,10 @@ func enter() -> void:
 func exit() -> void:
 	parent.linear_damp = 0.1
 
+'''
+While the player is idle, repeatedly apply constant force upwards for two seconds, then downwards for 
+two seconds. Also slow the players movement using the linear_damp property.
+'''
 func process_physics(delta) -> TelekeneticCharacterState:
 	if Input.is_action_pressed('right_click'):
 		return pulling_state
