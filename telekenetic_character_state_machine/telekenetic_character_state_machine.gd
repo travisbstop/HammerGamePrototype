@@ -5,9 +5,10 @@ var starting_state: TelekeneticCharacterState
 
 var current_state: TelekeneticCharacterState
 
-func init(parent: TelekeneticCharacter) -> void:
+func init(parent: TelekeneticCharacter, get_global_mouse_position: Callable) -> void:
 	for child in get_children():
 		child.parent = parent
+		child.get_global_mouse_position = get_global_mouse_position
 	change_state(starting_state)
 	
 

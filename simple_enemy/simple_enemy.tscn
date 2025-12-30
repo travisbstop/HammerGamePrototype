@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bciwoladkajew"]
+
+[ext_resource type="Texture2D" uid="uid://btcohqey5ysk8" path="res://assets/Alan.png" id="1_x1x6l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_prm5s"]
+size = Vector2(70.5, 67.5)
+
+[node name="SimpleEnemy" type="RigidBody2D"]
+position = Vector2(-37, -29)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(38.25, 28.5)
+scale = Vector2(0.479592, 0.540323)
+texture = ExtResource("1_x1x6l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(38.25, 28.75)
+shape = SubResource("RectangleShape2D_prm5s")

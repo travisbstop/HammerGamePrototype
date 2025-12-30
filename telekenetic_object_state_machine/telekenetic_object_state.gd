@@ -4,6 +4,7 @@ extends Node
 var parent: TelekeneticObject
 var cursor_animatable_body_2d: AnimatableBody2D
 var cursor_pinjoint_2d: PinJoint2D
+var get_global_mouse_position: Callable
 
 func enter() -> void:
 	pass

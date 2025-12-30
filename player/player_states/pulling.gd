@@ -7,7 +7,7 @@ var mouse_position: Vector2
 
 func process_physics(delta):
 	if Input.is_action_pressed('right_click'):
-		mouse_position = get_viewport().get_mouse_position()
+		mouse_position = get_global_mouse_position.call()
 		var direction = parent.position.direction_to(mouse_position)
 		var distance = parent.position.distance_to(mouse_position)
 		parent.constant_force = direction * 1000000/2 * delta

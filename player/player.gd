@@ -5,7 +5,7 @@ extends RigidBody2D
 var state_machine = $TelekeneticCharacterStateMachine
 
 func _ready() -> void:
-	state_machine.init(self)
+	state_machine.init(self, get_global_mouse_position)
 	
 func _unhandled_input(event: InputEvent) -> void:
 	state_machine.process_input(event)

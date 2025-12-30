@@ -1,5 +1,5 @@
 class_name TelekeneticObject
-extends Node
+extends Node2D
 
 @onready
 var state_machine = $TelekeneticObjectStateMachine
@@ -11,7 +11,7 @@ var cursor_animatable_body_2d: AnimatableBody2D
 var cursor_pinjoint_2d: PinJoint2D
 
 func _ready() -> void:
-	state_machine.init(self, cursor_animatable_body_2d, cursor_pinjoint_2d)
+	state_machine.init(self, cursor_animatable_body_2d, cursor_pinjoint_2d, get_global_mouse_position)
 	
 func _unhandled_input(event: InputEvent) -> void:
 	state_machine.process_input(event)

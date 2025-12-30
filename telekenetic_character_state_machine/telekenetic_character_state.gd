@@ -2,6 +2,7 @@ class_name TelekeneticCharacterState
 extends Node
 
 var parent: TelekeneticCharacter
+var get_global_mouse_position: Callable
 
 func enter() -> void:
 	pass
