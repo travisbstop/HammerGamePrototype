@@ -10,11 +10,11 @@ func enter() -> void:
 func exit() -> void:
 	pass
 
-func process_input(event: InputEvent) -> TelekeneticCharacterState:
+func process_input(_event: InputEvent) -> TelekeneticCharacterState:
 	return null
 
-func process_frame(delta: float) -> TelekeneticCharacterState:
+func process_frame(_delta: float) -> TelekeneticCharacterState:
 	return null
 
-func process_physics(delta: float) -> TelekeneticCharacterState:
+func process_physics(_delta: float) -> TelekeneticCharacterState:
 	return null

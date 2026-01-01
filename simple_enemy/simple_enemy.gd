@@ -1,11 +1,20 @@
-extends Node
+class_name SimpleEnemy
+extends RigidBody2D
 
+@onready
+var state_machine = $EnemyStateMachine
 
-# Called when the node enters the scene tree for the first time.
+@export
+var force: int = 100000
+
 func _ready() -> void:
-	pass # Replace with function body.
+	state_machine.init(self, force)
+	
+func _unhandled_input(event: InputEvent) -> void:
+	state_machine.process_input(event)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _physics_process(delta: float) -> void:
+	state_machine.process_physics(delta)
+	
 func _process(delta: float) -> void:
-	pass
+	state_machine.process_frame(delta)

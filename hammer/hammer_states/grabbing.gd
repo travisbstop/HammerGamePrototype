@@ -16,7 +16,7 @@ func exit() -> void:
 '''
 Connect the telekenetic object to the pinjoint that is always positioned at the players cursor so that it is being "grabbed"
 '''
-func process_physics(delta) -> TelekeneticObjectState:
+func process_physics(_delta) -> TelekeneticObjectState:
 	mouse_position = get_global_mouse_position.call()
 	cursor_pinjoint_2d.node_b = parent.get_path()
 	if Input.is_action_pressed('click'):
