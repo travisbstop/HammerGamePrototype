@@ -5,10 +5,11 @@ var starting_state: EnemyState
 
 var current_state: EnemyState
 
-func init(parent: SimpleEnemy, force: int = 15000) -> void:
+func init(parent: SimpleEnemy, force_towards_player: int, max_speed: int) -> void:
 	for child in get_children():
 		child.parent = parent
-		child.force = force
+		child.force_towards_player = force_towards_player
+		child.max_speed = max_speed
 	change_state(starting_state)
 	
 

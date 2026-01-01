@@ -5,10 +5,13 @@ extends RigidBody2D
 var state_machine = $EnemyStateMachine
 
 @export
-var force: int = 100000
+var force_towards_player: int = 150000
+
+@export
+var max_speed: int = 1500
 
 func _ready() -> void:
-	state_machine.init(self, force)
+	state_machine.init(self, force_towards_player, max_speed)
 	
 func _unhandled_input(event: InputEvent) -> void:
 	state_machine.process_input(event)

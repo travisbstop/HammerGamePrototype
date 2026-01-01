@@ -26,7 +26,6 @@ scale = Vector2(20, 20)
 
 [node name="Hammer" parent="." node_paths=PackedStringArray("cursor_animatable_body_2d", "cursor_pinjoint_2d") instance=ExtResource("5_0vqd2")]
 position = Vector2(786, 265)
-mass = 2.0
 gravity_scale = 0.0
 cursor_animatable_body_2d = NodePath("../CursorAnimatableBody2D")
 cursor_pinjoint_2d = NodePath("../CursorAnimatableBody2D/CursorPinjoint2D")
