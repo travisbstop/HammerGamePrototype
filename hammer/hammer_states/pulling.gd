@@ -17,7 +17,7 @@ func process_physics(delta):
 		mouse_position = get_global_mouse_position.call()
 		var direction = parent.position.direction_to(mouse_position)
 		var distance = parent.position.distance_to(mouse_position)
-		parent.constant_force = direction * 1000000 * delta
+		parent.constant_force = direction * 50000000 * delta
 		
 		if distance < 100:
 			return grabbing_state

@@ -12,3 +12,5 @@ position = Vector2(554, 372)
 
 [node name="SimpleEnemy3" parent="." instance=ExtResource("1_wfmxr")]
 position = Vector2(-432, 276)
+force_towards_player = 500000
+max_speed = 9999999999

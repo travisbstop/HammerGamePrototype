@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://1aqx3yj8pndq" path="res://hammer/hammer_states/grabbing.gd" id="6_ksfjn"]
 
 [node name="Hammer" type="RigidBody2D"]
+mass = 20.0
 script = ExtResource("1_nlxmv")
 
 [node name="HammerCollisionPolygon2D" type="CollisionPolygon2D" parent="."]
