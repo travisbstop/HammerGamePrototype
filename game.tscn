@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://5rpomhcwusmx"]
+[gd_scene load_steps=9 format=3 uid="uid://5rpomhcwusmx"]
 
 [ext_resource type="Script" uid="uid://d1y12i00ww5d6" path="res://game.gd" id="1_jitfg"]
 [ext_resource type="PackedScene" uid="uid://bbuc6y50sc3g4" path="res://ground.tscn" id="3_ugxh8"]
 [ext_resource type="PackedScene" uid="uid://dc2gvp4qew83j" path="res://player/player.tscn" id="4_yy66r"]
-[ext_resource type="PackedScene" uid="uid://bciwoladkajew" path="res://simple_enemy/simple_enemy.tscn" id="5_0oxfx"]
 [ext_resource type="PackedScene" uid="uid://ddfi4k5ltfjpy" path="res://hammer/hammer.tscn" id="5_0vqd2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g3k4y"]
@@ -27,6 +26,8 @@ scale = Vector2(20, 20)
 [node name="Hammer" parent="." node_paths=PackedStringArray("cursor_animatable_body_2d", "cursor_pinjoint_2d") instance=ExtResource("5_0vqd2")]
 position = Vector2(786, 265)
 gravity_scale = 0.0
+continuous_cd = 1
+max_contacts_reported = 99
 cursor_animatable_body_2d = NodePath("../CursorAnimatableBody2D")
 cursor_pinjoint_2d = NodePath("../CursorAnimatableBody2D/CursorPinjoint2D")
 
@@ -62,6 +63,3 @@ position = Vector2(3175, 964)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWorldBoundary"]
 shape = SubResource("WorldBoundaryShape2D_u38kk")
-
-[node name="SimpleEnemy" parent="." instance=ExtResource("5_0oxfx")]
-position = Vector2(723, 528)

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://88jqsbf4584a"]
+
+[ext_resource type="PackedScene" uid="uid://bciwoladkajew" path="res://simple_enemy/simple_enemy.tscn" id="1_wfmxr"]
+
+[node name="Wave2" type="Node2D"]
+
+[node name="SimpleEnemy" parent="." instance=ExtResource("1_wfmxr")]
+position = Vector2(-520, -435)
+
+[node name="SimpleEnemy2" parent="." instance=ExtResource("1_wfmxr")]
+position = Vector2(554, 372)
+
+[node name="SimpleEnemy3" parent="." instance=ExtResource("1_wfmxr")]
+position = Vector2(-432, 276)

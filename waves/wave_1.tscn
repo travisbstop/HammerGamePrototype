@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1ocw1u3od6vj"]
+
+[ext_resource type="PackedScene" uid="uid://bciwoladkajew" path="res://simple_enemy/simple_enemy.tscn" id="1_55but"]
+
+[node name="Wave1" type="Node2D"]
+
+[node name="SimpleEnemy" parent="." instance=ExtResource("1_55but")]
+position = Vector2(5, -235)

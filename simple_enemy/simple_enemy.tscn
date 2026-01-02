@@ -8,8 +8,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_prm5s"]
 size = Vector2(70.5, 67.5)
 
-[node name="SimpleEnemy" type="RigidBody2D"]
+[node name="SimpleEnemy" type="RigidBody2D" groups=["enemies"]]
 gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 50
 script = ExtResource("1_6xfip")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -10,8 +10,11 @@ var force_towards_player: int = 150000
 @export
 var max_speed: int = 1500
 
+signal enemy_died
+
 func _ready() -> void:
 	state_machine.init(self, force_towards_player, max_speed)
+	add_to_group("enemies")
 	
 func _unhandled_input(event: InputEvent) -> void:
 	state_machine.process_input(event)
@@ -21,3 +24,21 @@ func _physics_process(delta: float) -> void:
 	
 func _process(delta: float) -> void:
 	state_machine.process_frame(delta)
+	
+func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
+	var contact_count = state.get_contact_count()
+	var total_impulse := Vector2.ZERO
+	
+	# TODO: switch impulse with contact velocity if possible since impulse is often erroneously 0
+	for i in range(contact_count):
+		if "Hammer" in state.get_contact_collider_object(i).to_string():
+			var impulse := state.get_contact_impulse(i).abs()
+			print("Impulse %d length: %f" %[i, impulse.length()])
+			total_impulse += impulse
+	
+	var impulse_length := total_impulse.length()
+		
+	if impulse_length > 1000:
+		queue_free()
+		enemy_died.emit()
+	
