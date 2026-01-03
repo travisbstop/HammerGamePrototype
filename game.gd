@@ -7,8 +7,12 @@ var wave_scene_instance: Node2D
 func _ready() -> void:
 	load_wave(current_wave, wave_scene_instance)
 	connect_enemy_died_signal()
-		
-func _on_enemy_died() -> void:
+
+func _input(event: InputEvent) -> void:
+	if (event.is_action("Restart")):
+		get_tree().reload_current_scene()
+	
+func on_enemy_died() -> void:
 	var enemies = get_tree().get_nodes_in_group("enemies")
 	var remaining_enemies = enemies.size() - 1
 	if remaining_enemies == 0:
@@ -21,7 +25,7 @@ func _on_enemy_died() -> void:
 func connect_enemy_died_signal() -> void:
 	var enemies = get_tree().get_nodes_in_group("enemies")
 	for enemy in enemies:
-		enemy.enemy_died.connect(_on_enemy_died)
+		enemy.enemy_died.connect(on_enemy_died)
 		
 func load_wave(wave: int, wave_instance: Node2D):
 	if wave_instance:

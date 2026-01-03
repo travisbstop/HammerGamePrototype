@@ -1,4 +1,4 @@
-class_name SimpleEnemy
+class_name GunEnemy
 extends RigidBody2D
 
 @onready
@@ -24,7 +24,8 @@ func _physics_process(delta: float) -> void:
 	
 func _process(delta: float) -> void:
 	state_machine.process_frame(delta)
-	
+
+
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	var contact_count = state.get_contact_count()
 	var total_velocity := Vector2.ZERO
@@ -33,6 +34,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	for i in range(contact_count):
 		if "Hammer" in state.get_contact_collider_object(i).to_string():
 			var velocity := state.get_contact_local_velocity_at_position(i)
+			#print("Impulse %d length: %f" %[i, impulse.length()])
 			total_velocity += velocity
 			
 			print("contact velocity %d length: %f" %[i, velocity.length()])

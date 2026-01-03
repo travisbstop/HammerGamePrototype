@@ -12,6 +12,8 @@ size = Vector2(38, 50)
 
 [node name="Player" type="RigidBody2D"]
 gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 5
 script = ExtResource("1_ul6xn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

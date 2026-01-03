@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj21cu17by2qp"]
+
+[ext_resource type="PackedScene" uid="uid://bciwoladkajew" path="res://simple_enemy/simple_enemy.tscn" id="1_anprl"]
+[ext_resource type="PackedScene" uid="uid://cu58ray186jac" path="res://gun_enemy/gun_enemy.tscn" id="2_2xfk3"]
+
+[node name="Wave3" type="Node2D"]
+
+[node name="SimpleEnemy" parent="." instance=ExtResource("1_anprl")]
+position = Vector2(-599, 506)
+
+[node name="GunEnemy" parent="." instance=ExtResource("2_2xfk3")]
+position = Vector2(-522, -777)
+
+[node name="GunEnemy2" parent="." instance=ExtResource("2_2xfk3")]
+position = Vector2(756, 576)

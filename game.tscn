@@ -41,7 +41,7 @@ shape = SubResource("CircleShape2D_g3k4y")
 
 [node name="CursorPinjoint2D" type="PinJoint2D" parent="CursorAnimatableBody2D"]
 node_a = NodePath("..")
-softness = 16.0
+softness = 5.0
 
 [node name="Player" parent="." instance=ExtResource("4_yy66r")]
 position = Vector2(452, 354)
@@ -63,3 +63,5 @@ position = Vector2(3175, 964)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWorldBoundary"]
 shape = SubResource("WorldBoundaryShape2D_u38kk")
+
+[connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
