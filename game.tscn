@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://d1y12i00ww5d6" path="res://game.gd" id="1_jitfg"]
 [ext_resource type="PackedScene" uid="uid://bbuc6y50sc3g4" path="res://ground.tscn" id="3_ugxh8"]
-[ext_resource type="PackedScene" uid="uid://dc2gvp4qew83j" path="res://player/player.tscn" id="4_yy66r"]
-[ext_resource type="PackedScene" uid="uid://ddfi4k5ltfjpy" path="res://hammer/hammer.tscn" id="5_0vqd2"]
+[ext_resource type="PackedScene" uid="uid://dc2gvp4qew83j" path="res://assets/player/player.tscn" id="4_yy66r"]
+[ext_resource type="PackedScene" uid="uid://ddfi4k5ltfjpy" path="res://assets/hammer/hammer.tscn" id="5_0vqd2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g3k4y"]
 radius = 9.48683

@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://cu58ray186jac"]
+
+[ext_resource type="Script" uid="uid://cctutuxh1j047" path="res://assets/gun_enemy/gun_enemy.gd" id="1_f5ksg"]
+[ext_resource type="Texture2D" uid="uid://btcohqey5ysk8" path="res://assets/Alan.png" id="2_r5kle"]
+[ext_resource type="Script" uid="uid://dnqo3651arcxv" path="res://enemy_state_machine/enemy_state_machine.gd" id="3_j814n"]
+[ext_resource type="Script" uid="uid://b5dnhxxmxstro" path="res://assets/gun_enemy/gun_enemy_states/chasing.gd" id="4_ilewh"]
+[ext_resource type="Script" uid="uid://dygja8am4qol1" path="res://assets/gun_enemy/gun_enemy_states/aiming.gd" id="5_ilewh"]
+[ext_resource type="Script" uid="uid://dw3048t3nvvjv" path="res://assets/gun_enemy/gun_enemy_states/shooting.gd" id="6_xgpha"]
+[ext_resource type="PackedScene" uid="uid://b4pbfj114uvj2" path="res://components/contact_handler/contact_handler_default/contact_handler_default.tscn" id="7_6uu3s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ggh8"]
+size = Vector2(30, 31)
+
+[node name="GunEnemy" type="RigidBody2D" node_paths=PackedStringArray("contact_handler")]
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 10
+script = ExtResource("1_f5ksg")
+contact_handler = NodePath("ContactHandler")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.03125143, -0.5)
+scale = Vector2(0.78680927, 0.9489787)
+texture = ExtResource("2_r5kle")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.06250191, -0.5)
+scale = Vector2(3.84735, 3.795915)
+shape = SubResource("RectangleShape2D_4ggh8")
+
+[node name="EnemyStateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
+script = ExtResource("3_j814n")
+starting_state = NodePath("Chasing")
+
+[node name="Chasing" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("aiming_state")]
+script = ExtResource("4_ilewh")
+aiming_state = NodePath("../Aiming")
+
+[node name="Aiming" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("shooting_state")]
+script = ExtResource("5_ilewh")
+shooting_state = NodePath("../Shooting")
+
+[node name="Shooting" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("aiming_state", "chasing_state")]
+script = ExtResource("6_xgpha")
+aiming_state = NodePath("../Aiming")
+chasing_state = NodePath("../Chasing")
+
+[node name="AimingTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="ContactHandler" parent="." instance=ExtResource("7_6uu3s")]
+
+[connection signal="timeout" from="AimingTimer" to="EnemyStateMachine/Aiming" method="_on_aiming_timer_timeout"]

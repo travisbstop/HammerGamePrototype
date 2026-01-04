@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg0qwqoetv0yp"]
+
+[ext_resource type="PackedScene" uid="uid://cu58ray186jac" path="res://assets/gun_enemy/gun_enemy.tscn" id="1_t16rj"]
+
+[node name="Wave1" type="Node2D"]
+
+[node name="GunEnemy" parent="." instance=ExtResource("1_t16rj")]
+position = Vector2(1167, 423)
+
+[node name="GunEnemy2" parent="." instance=ExtResource("1_t16rj")]
+position = Vector2(-766, -678)

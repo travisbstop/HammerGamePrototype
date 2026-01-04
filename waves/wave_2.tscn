@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://88jqsbf4584a"]
 
-[ext_resource type="PackedScene" uid="uid://bciwoladkajew" path="res://simple_enemy/simple_enemy.tscn" id="1_wfmxr"]
+[ext_resource type="PackedScene" uid="uid://bciwoladkajew" path="res://assets/simple_enemy/simple_enemy.tscn" id="1_wfmxr"]
 
 [node name="Wave2" type="Node2D"]
 

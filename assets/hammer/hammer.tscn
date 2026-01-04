@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://ddfi4k5ltfjpy"]
+
+[ext_resource type="Script" uid="uid://dvwrmwds6lc8j" path="res://assets/hammer/hammer.gd" id="1_nlxmv"]
+[ext_resource type="PackedScene" uid="uid://clpfxixtfnyn7" path="res://assets/hammer/telekenetic_object_state_machine/telekenetic_object_state_machine.tscn" id="2_xq4xc"]
+[ext_resource type="Script" uid="uid://bu04d17dd0q47" path="res://assets/hammer/telekenetic_object_state_machine/telekenetic_object_state_machine.gd" id="3_fgbwv"]
+[ext_resource type="Script" uid="uid://cyt64aaf1ahk0" path="res://assets/hammer/hammer_states/idle.gd" id="4_70e8i"]
+[ext_resource type="Script" uid="uid://ca5rr38a87sl0" path="res://assets/hammer/hammer_states/pulling.gd" id="5_bl7n2"]
+[ext_resource type="Script" uid="uid://1aqx3yj8pndq" path="res://assets/hammer/hammer_states/grabbing.gd" id="6_ksfjn"]
+
+[node name="Hammer" type="RigidBody2D"]
+mass = 20.0
+script = ExtResource("1_nlxmv")
+
+[node name="HammerCollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(10, 10)
+polygon = PackedVector2Array(-1, -2, -1, 10, 1, 10, 1, -2, 5, -2, 5, -6, -5, -6, -5, -2)
+
+[node name="TelekeneticObjectStateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("2_xq4xc")]
+script = ExtResource("3_fgbwv")
+starting_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="TelekeneticObjectStateMachine" node_paths=PackedStringArray("pulling_state")]
+script = ExtResource("4_70e8i")
+pulling_state = NodePath("../Pulling")
+
+[node name="Pulling" type="Node" parent="TelekeneticObjectStateMachine" node_paths=PackedStringArray("idle_state", "grabbing_state")]
+script = ExtResource("5_bl7n2")
+idle_state = NodePath("../Idle")
+grabbing_state = NodePath("../Grabbing")
+
+[node name="Grabbing" type="Node" parent="TelekeneticObjectStateMachine" node_paths=PackedStringArray("idle_state")]
+script = ExtResource("6_ksfjn")
+idle_state = NodePath("../Idle")

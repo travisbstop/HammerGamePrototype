@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://bciwoladkajew"]
+
+[ext_resource type="Script" uid="uid://nasory2i35v8" path="res://assets/simple_enemy/simple_enemy.gd" id="1_6xfip"]
+[ext_resource type="Texture2D" uid="uid://btcohqey5ysk8" path="res://assets/Alan.png" id="1_x1x6l"]
+[ext_resource type="Script" uid="uid://dnqo3651arcxv" path="res://enemy_state_machine/enemy_state_machine.gd" id="2_7fodm"]
+[ext_resource type="Script" uid="uid://dtpsvdijsu4ew" path="res://assets/simple_enemy/simple_enemy_states/chasing.gd" id="3_ey4tb"]
+[ext_resource type="PackedScene" uid="uid://b4pbfj114uvj2" path="res://components/contact_handler/contact_handler_default/contact_handler_default.tscn" id="5_xun5a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_prm5s"]
+size = Vector2(70.5, 67.5)
+
+[node name="SimpleEnemy" type="RigidBody2D" node_paths=PackedStringArray("contact_handler") groups=["enemies"]]
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 50
+script = ExtResource("1_6xfip")
+contact_handler = NodePath("ContactHandler")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.25001144, -0.4999733)
+scale = Vector2(0.479592, 0.540323)
+texture = ExtResource("1_x1x6l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.1444092e-05, 2.670288e-05)
+shape = SubResource("RectangleShape2D_prm5s")
+
+[node name="EnemyStateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
+script = ExtResource("2_7fodm")
+starting_state = NodePath("Chasing")
+
+[node name="Chasing" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("3_ey4tb")
+
+[node name="ContactHandler" parent="." instance=ExtResource("5_xun5a")]

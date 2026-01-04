@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://dc2gvp4qew83j"]
+
+[ext_resource type="Script" uid="uid://bg1itjf7w6ann" path="res://assets/player/player.gd" id="1_ul6xn"]
+[ext_resource type="Texture2D" uid="uid://t6uuou2tjql" path="res://assets/Doodle.png" id="2_yoj7d"]
+[ext_resource type="PackedScene" uid="uid://b407vxnx6yrcb" path="res://assets/player/telekenetic_character_state_machine/telekenetic_character_state_machine.tscn" id="3_o0n0c"]
+[ext_resource type="Script" uid="uid://cgstfstigiany" path="res://assets/player/telekenetic_character_state_machine/telekenetic_character_state_machine.gd" id="4_dkcfw"]
+[ext_resource type="Script" uid="uid://ccr33e8ybg2iw" path="res://assets/player/player_states/idle.gd" id="4_v17us"]
+[ext_resource type="Script" uid="uid://cjmrakui4ht7r" path="res://assets/player/player_states/pulling.gd" id="5_tghsy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thlwo"]
+size = Vector2(38, 50)
+
+[node name="Player" type="RigidBody2D"]
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 5
+script = ExtResource("1_ul6xn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_thlwo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+scale = Vector2(0.274648, 0.325806)
+texture = ExtResource("2_yoj7d")
+
+[node name="TelekeneticCharacterStateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("3_o0n0c")]
+script = ExtResource("4_dkcfw")
+starting_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="TelekeneticCharacterStateMachine" node_paths=PackedStringArray("pulling_state")]
+script = ExtResource("4_v17us")
+pulling_state = NodePath("../Pulling")
+
+[node name="Pulling" type="Node" parent="TelekeneticCharacterStateMachine" node_paths=PackedStringArray("idle_state")]
+script = ExtResource("5_tghsy")
+idle_state = NodePath("../Idle")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.75, 0.75)
+position_smoothing_enabled = true
+position_smoothing_speed = 2.5
