@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://btcohqey5ysk8" path="res://assets/Alan.png" id="1_x1x6l"]
 [ext_resource type="Script" uid="uid://dnqo3651arcxv" path="res://enemy_state_machine/enemy_state_machine.gd" id="2_7fodm"]
 [ext_resource type="Script" uid="uid://dtpsvdijsu4ew" path="res://assets/simple_enemy/simple_enemy_states/chasing.gd" id="3_ey4tb"]
-[ext_resource type="PackedScene" uid="uid://b4pbfj114uvj2" path="res://components/contact_handler/contact_handler_default/contact_handler_default.tscn" id="5_xun5a"]
+[ext_resource type="PackedScene" uid="uid://b4pbfj114uvj2" path="res://common/contact_handler/contact_handler_default/contact_handler_default.tscn" id="5_xun5a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_prm5s"]
 size = Vector2(70.5, 67.5)

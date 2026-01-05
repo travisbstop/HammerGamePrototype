@@ -1,0 +1,117 @@
+[gd_scene load_steps=17 format=3 uid="uid://cm4fnksxme317"]
+
+[ext_resource type="Texture2D" uid="uid://dn7p1qs8ydh6b" path="res://assets/enemy_spawn_warning/enemy_spawn_warning.png" id="1_thyhw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lutr"]
+atlas = ExtResource("1_thyhw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4sn82"]
+atlas = ExtResource("1_thyhw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ch2ia"]
+atlas = ExtResource("1_thyhw")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71srf"]
+atlas = ExtResource("1_thyhw")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fy1pm"]
+atlas = ExtResource("1_thyhw")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wt8l1"]
+atlas = ExtResource("1_thyhw")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dicl4"]
+atlas = ExtResource("1_thyhw")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7ti3"]
+atlas = ExtResource("1_thyhw")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y28ai"]
+atlas = ExtResource("1_thyhw")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2aw3"]
+atlas = ExtResource("1_thyhw")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mcqo"]
+atlas = ExtResource("1_thyhw")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phkct"]
+atlas = ExtResource("1_thyhw")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubl6l"]
+atlas = ExtResource("1_thyhw")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1rnn"]
+atlas = ExtResource("1_thyhw")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u6yeg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lutr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4sn82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ch2ia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71srf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy1pm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wt8l1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dicl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7ti3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y28ai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2aw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mcqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phkct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubl6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1rnn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="EnemySpawnWarning" type="Node2D" groups=["enemy-spawn-warnings"]]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2.883857, 2.875565)
+sprite_frames = SubResource("SpriteFrames_u6yeg")
+autoplay = "default"
+frame_progress = 0.6308628

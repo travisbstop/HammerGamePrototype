@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://5rpomhcwusmx"]
+[gd_scene load_steps=10 format=3 uid="uid://5rpomhcwusmx"]
 
 [ext_resource type="Script" uid="uid://d1y12i00ww5d6" path="res://game.gd" id="1_jitfg"]
 [ext_resource type="PackedScene" uid="uid://bbuc6y50sc3g4" path="res://ground.tscn" id="3_ugxh8"]
 [ext_resource type="PackedScene" uid="uid://dc2gvp4qew83j" path="res://assets/player/player.tscn" id="4_yy66r"]
 [ext_resource type="PackedScene" uid="uid://ddfi4k5ltfjpy" path="res://assets/hammer/hammer.tscn" id="5_0vqd2"]
+[ext_resource type="PackedScene" uid="uid://c6ilnyet3q7og" path="res://common/transition_handler/transition_handler.tscn" id="5_7jktm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g3k4y"]
 radius = 9.48683
@@ -63,5 +64,7 @@ position = Vector2(3175, 964)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWorldBoundary"]
 shape = SubResource("WorldBoundaryShape2D_u38kk")
+
+[node name="TransitionHandler" parent="." instance=ExtResource("5_7jktm")]
 
 [connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]

@@ -6,12 +6,12 @@
 [ext_resource type="Script" uid="uid://b5dnhxxmxstro" path="res://assets/gun_enemy/gun_enemy_states/chasing.gd" id="4_ilewh"]
 [ext_resource type="Script" uid="uid://dygja8am4qol1" path="res://assets/gun_enemy/gun_enemy_states/aiming.gd" id="5_ilewh"]
 [ext_resource type="Script" uid="uid://dw3048t3nvvjv" path="res://assets/gun_enemy/gun_enemy_states/shooting.gd" id="6_xgpha"]
-[ext_resource type="PackedScene" uid="uid://b4pbfj114uvj2" path="res://components/contact_handler/contact_handler_default/contact_handler_default.tscn" id="7_6uu3s"]
+[ext_resource type="PackedScene" uid="uid://b4pbfj114uvj2" path="res://common/contact_handler/contact_handler_default/contact_handler_default.tscn" id="7_6uu3s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ggh8"]
 size = Vector2(30, 31)
 
-[node name="GunEnemy" type="RigidBody2D" node_paths=PackedStringArray("contact_handler")]
+[node name="GunEnemy" type="RigidBody2D" node_paths=PackedStringArray("contact_handler") groups=["enemies"]]
 gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 10
