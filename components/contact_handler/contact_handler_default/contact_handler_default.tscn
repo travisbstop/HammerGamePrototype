@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4pbfj114uvj2"]
-
-[ext_resource type="Script" uid="uid://bkybbmhjm5cbt" path="res://components/contact_handler/contact_handler_default/contact_handler_default.gd" id="1_rs3yd"]
-
-[node name="ContactHandler" type="Node"]
-script = ExtResource("1_rs3yd")

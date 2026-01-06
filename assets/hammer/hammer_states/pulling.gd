@@ -13,7 +13,7 @@ While left clicking, apply a constant force in the direction of the cursor until
 OR the telekenetic object is within 100 units.
 '''
 func process_physics(delta):
-	if Input.is_action_pressed('click'):
+	if Input.is_action_pressed('click') and not Input.is_action_pressed("right_click"):
 		mouse_position = get_global_mouse_position.call()
 		var direction = parent.position.direction_to(mouse_position)
 		var distance = parent.position.distance_to(mouse_position)
