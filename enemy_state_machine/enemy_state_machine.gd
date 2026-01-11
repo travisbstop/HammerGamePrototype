@@ -5,11 +5,12 @@ var starting_state: EnemyState
 
 var current_state: EnemyState
 
-func init(parent: RigidBody2D, force_towards_player: int, max_speed: int) -> void:
+func init(parent: RigidBody2D, force_towards_player: int, max_speed: int, player: RigidBody2D) -> void:
 	for child in get_children():
 		child.parent = parent
 		child.force_towards_player = force_towards_player
 		child.max_speed = max_speed
+		child.player = player
 	change_state(starting_state)
 	
 

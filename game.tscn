@@ -65,6 +65,7 @@ position = Vector2(3175, 964)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWorldBoundary"]
 shape = SubResource("WorldBoundaryShape2D_u38kk")
 
-[node name="TransitionHandler" parent="." instance=ExtResource("5_7jktm")]
+[node name="TransitionHandler" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_7jktm")]
+player = NodePath("../Player")
 
 [connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]

@@ -13,10 +13,17 @@ var max_speed: int = 1500
 @export
 var contact_handler: ContactHandler
 
+@export
+var death_handler: DeathHandler
+
+var player: RigidBody2D
+
 signal enemy_died
 
+
 func _ready() -> void:
-	state_machine.init(self, force_towards_player, max_speed)
+	state_machine.init(self, force_towards_player, max_speed, player)
+	death_handler.init(self, enemy_died)
 	add_to_group("enemies")
 	
 func _unhandled_input(event: InputEvent) -> void:
@@ -32,6 +39,5 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	var velocity_length := contact_handler.get_contact_speed(state)
 		
 	if velocity_length > 4000:
-		queue_free()
-		enemy_died.emit()
+		death_handler.handle_death()
 	

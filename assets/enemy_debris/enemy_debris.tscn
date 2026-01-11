@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://d068vhp52dqvn"]
+
+[ext_resource type="Texture2D" uid="uid://btcohqey5ysk8" path="res://assets/Alan.png" id="1_4i4mf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4i4mf"]
+size = Vector2(7.974629, 8.511444)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfd1r"]
+size = Vector2(6.0019126, 6.0196176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kh02c"]
+size = Vector2(3.504758, 3.4950976)
+
+[node name="EnemyDebris" type="Node2D"]
+scale = Vector2(1.0031812, 0.9967413)
+
+[node name="Debris1" type="RigidBody2D" parent="."]
+position = Vector2(32.89535, 30.09808)
+mass = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Debris1"]
+position = Vector2(-0.47712082, 0.24931818)
+scale = Vector2(6.1628466, 4.114893)
+shape = SubResource("RectangleShape2D_4i4mf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Debris1"]
+position = Vector2(-0.39195958, 0.35056412)
+scale = Vector2(0.3414699, 0.2757295)
+texture = ExtResource("1_4i4mf")
+
+[node name="Debris2" type="RigidBody2D" parent="."]
+position = Vector2(-38.876324, 20.065386)
+mass = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Debris2"]
+position = Vector2(-1.4635301, -0.51130575)
+scale = Vector2(1.2247927, 1.1290501)
+shape = SubResource("RectangleShape2D_yfd1r")
+
+[node name="Sprite2D" type="Sprite2D" parent="Debris2"]
+position = Vector2(-1.5591094, -0.65270513)
+scale = Vector2(0.051521305, 0.057385046)
+texture = ExtResource("1_4i4mf")
+
+[node name="Debris3" type="RigidBody2D" parent="."]
+position = Vector2(27.911207, -36.117695)
+mass = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Debris3"]
+position = Vector2(0.5197091, 1.4952328)
+scale = Vector2(6.4655356, 6.6207557)
+shape = SubResource("RectangleShape2D_kh02c")
+
+[node name="Sprite2D" type="Sprite2D" parent="Debris3"]
+position = Vector2(0.51970905, 1.4952327)
+scale = Vector2(-0.15650381, 0.18007626)
+texture = ExtResource("1_4i4mf")

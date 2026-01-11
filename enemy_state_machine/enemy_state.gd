@@ -2,6 +2,7 @@ class_name EnemyState
 extends Node
 
 var parent: RigidBody2D
+var player: RigidBody2D
 var force_towards_player: int
 var max_speed: int
 

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwlmn7f8r5siv"]
+
+[ext_resource type="Script" uid="uid://bkkgnnqgqm86b" path="res://common/death_handler/death_handler_default/death_handler_default.gd" id="1_1m1aa"]
+
+[node name="DeathHandlerDefault" type="Node2D"]
+script = ExtResource("1_1m1aa")

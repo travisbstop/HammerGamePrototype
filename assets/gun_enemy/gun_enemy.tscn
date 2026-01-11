@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cu58ray186jac"]
+[gd_scene load_steps=10 format=3 uid="uid://cu58ray186jac"]
 
 [ext_resource type="Script" uid="uid://cctutuxh1j047" path="res://assets/gun_enemy/gun_enemy.gd" id="1_f5ksg"]
 [ext_resource type="Texture2D" uid="uid://btcohqey5ysk8" path="res://assets/Alan.png" id="2_r5kle"]
@@ -7,16 +7,18 @@
 [ext_resource type="Script" uid="uid://dygja8am4qol1" path="res://assets/gun_enemy/gun_enemy_states/aiming.gd" id="5_ilewh"]
 [ext_resource type="Script" uid="uid://dw3048t3nvvjv" path="res://assets/gun_enemy/gun_enemy_states/shooting.gd" id="6_xgpha"]
 [ext_resource type="PackedScene" uid="uid://b4pbfj114uvj2" path="res://common/contact_handler/contact_handler_default/contact_handler_default.tscn" id="7_6uu3s"]
+[ext_resource type="PackedScene" uid="uid://dwlmn7f8r5siv" path="res://common/death_handler/death_handler_default/death_handler_default.tscn" id="8_1mmud"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ggh8"]
 size = Vector2(30, 31)
 
-[node name="GunEnemy" type="RigidBody2D" node_paths=PackedStringArray("contact_handler") groups=["enemies"]]
+[node name="GunEnemy" type="RigidBody2D" node_paths=PackedStringArray("contact_handler", "death_handler") groups=["enemies"]]
 gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 10
 script = ExtResource("1_f5ksg")
 contact_handler = NodePath("ContactHandler")
+death_handler = NodePath("DeathHandlerDefault")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0.03125143, -0.5)
@@ -50,5 +52,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="ContactHandler" parent="." instance=ExtResource("7_6uu3s")]
+
+[node name="DeathHandlerDefault" parent="." instance=ExtResource("8_1mmud")]
 
 [connection signal="timeout" from="AimingTimer" to="EnemyStateMachine/Aiming" method="_on_aiming_timer_timeout"]
